@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 import pandas as pd
 
-def calculate():
+def calculate_and_errors():
     """
     _summary_
         Cette fonction fait le calcul de l'expression choisi tout en 
@@ -16,7 +16,7 @@ def calculate():
         result_label.config(text="Résultat : " + str(result))
         save_operation(expression, result)  # On sauvegarde l'opération
     except ZeroDivisionError:
-        messagebox.showerror("Erreur", "Division par zéro est impossible.")
+        messagebox.showerror("Erreur", "Division par zéro impossible.")
         result_label.config(text="Erreur")
     except NameError:
         messagebox.showerror("Erreur", "Vous esseyez d'entrer n'importe quoi hein ?")
@@ -84,7 +84,7 @@ result_label = tk.Label(root, text="Résultat : ", font=('Arial', 14))
 result_label.pack(pady=10)
 
 # Lancer le calcul
-calculate_button = tk.Button(root, text="Calculer", command=calculate, font=('Arial', 14))
+calculate_button = tk.Button(root, text="Calculer", command=calculate_and_errors, font=('Arial', 14))
 calculate_button.pack(side=tk.LEFT, padx=5)
 
 # Réinitialiser Input
