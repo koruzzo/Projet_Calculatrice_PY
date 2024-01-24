@@ -11,7 +11,7 @@ def calculate_and_errors():
     """
     try:
         expression = entry.get()
-        result = eval(expression)
+        result = pd.eval(expression)
         result = round(result, 4)  # On limite le résultat à 4 chiffres après la virgule
         result_label.config(text = "Résultat : " + str(result))
         save_operation(expression, result)  # On sauvegarde l'opération
