@@ -1,3 +1,8 @@
+"""
+    tkinter est utiliser pour la construction et l'affichage de l'application
+    pandas est utilisé pour le travail sur csv et le calcul
+    messagebox de tkinter est utilisé pour générer des boite de dialogue
+"""
 import tkinter as tk
 from tkinter import messagebox
 import pandas as pd
@@ -27,7 +32,7 @@ def calc_and_err():
     except SyntaxError:
         messagebox.showerror("Erreur", "Vous esseyez d'entrer n'importe quoi hein ?")
         result_label.config(text = "Erreur")
-    except Exception as e:
+    except ImportError as e:
         messagebox.showerror("Erreur", f"Erreur de calcul : {str(e)}")
         result_label.config(text = "Erreur")
 def save_operation(expression, result):
