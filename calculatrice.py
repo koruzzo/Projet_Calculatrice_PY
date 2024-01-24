@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 import pandas as pd
 
-def calculate_and_errors():
+def calc_and_err():
     """
     _summary_
         Cette fonction fait le calcul de l'expression choisi tout en 
@@ -50,7 +50,7 @@ def save_operation(expression, result):
     data = pd.concat([data, new_data], ignore_index = True)
     data.tail(5).to_csv('operations.csv', index = False)
 
-def show_last_5_operations():
+def show_last_5():
     """
     _summary_
     Cette fonction affiche les 5 dernières opérations sauvegardées dans le fichier CSV.
@@ -83,7 +83,7 @@ result_label = tk.Label(root, text="Résultat : ", font = ('Arial', 14))
 result_label.pack(pady = 10)
 
 # Lancer le calcul
-calculate_button = tk.Button(root, text = "Calculer", command = calculate_and_errors, font = ('Arial', 14))
+calculate_button = tk.Button(root, text = "Calculer", command = calc_and_err, font = ('Arial', 14))
 calculate_button.pack(side = tk.LEFT, padx = 5)
 
 # Réinitialiser Input
@@ -91,7 +91,7 @@ reset_button = tk.Button(root, text = "Reset", command = reset_entry, font = ('A
 reset_button.pack(side = tk.LEFT, padx = 5)
 
 # Afficher les 5 dernières opérations
-history_button = tk.Button(root, text = "Historique", command = show_last_5_operations, font = ('Arial', 14))
+history_button = tk.Button(root, text = "Historique", command = show_last_5, font = ('Arial', 14))
 history_button.pack(side = tk.RIGHT, padx = 5)
 
 
