@@ -97,23 +97,23 @@ root = tk.Tk()
 root.title("Calculatrice")
 
 # Input
-entry = tk.Entry(root, font = ('Arial', 14))
+entry = tk.Entry(root, font = ('Arial', 30), width = 50)
 entry.pack(pady = 10)
 
 # Afficher le résultat
-result_label = tk.Label(root, text="Résultat : ", font = ('Arial', 14))
+result_label = tk.Label(root, text="Résultat : ", font = ('Arial', 30))
 result_label.pack(pady = 10)
 
 # Lancer le calcul
-calculate_button = tk.Button(root, text = "Calculer", command = calc_and_err, font = ('Arial', 14))
+calculate_button = tk.Button(root, text = "Calculer", command = calc_and_err, font = ('Arial', 30))
 calculate_button.pack(side = tk.LEFT, padx = 5)
 
 # Réinitialiser Input
-reset_button = tk.Button(root, text = "Reset", command = reset_entry, font = ('Arial', 14))
+reset_button = tk.Button(root, text = "Reset", command = reset_entry, font = ('Arial', 30))
 reset_button.pack(side = tk.LEFT, padx = 5)
 
 # Afficher les 5 dernières opérations
-history_button = tk.Button(root, text = "Historique", command = show_last_5, font = ('Arial', 14))
+history_button = tk.Button(root, text = "Historique", command = show_last_5, font = ('Arial', 30))
 history_button.pack(side = tk.RIGHT, padx = 5)
 
 root.mainloop()
