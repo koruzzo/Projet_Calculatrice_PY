@@ -1,5 +1,5 @@
 """
-    tkinter est utiliser pour la construction et l'affichage de l'application
+    tkinter est utilisé pour la construction et l'affichage de l'application
     pandas est utilisé pour le travail sur csv et le calcul
     messagebox de tkinter est utilisé pour générer des boite de dialogue
 """
@@ -98,7 +98,5 @@ reset_button.pack(side = tk.LEFT, padx = 5)
 # Afficher les 5 dernières opérations
 history_button = tk.Button(root, text = "Historique", command = show_last_5, font = ('Arial', 14))
 history_button.pack(side = tk.RIGHT, padx = 5)
-
-
 
 root.mainloop()
