@@ -13,24 +13,23 @@ def calculate_and_errors():
         expression = entry.get()
         result = eval(expression)
         result = round(result, 4)  # On limite le résultat à 4 chiffres après la virgule
-        result_label.config(text="Résultat : " + str(result))
+        result_label.config(text = "Résultat : " + str(result))
         save_operation(expression, result)  # On sauvegarde l'opération
     except ZeroDivisionError:
         messagebox.showerror("Erreur", "Division par zéro impossible.")
-        result_label.config(text="Erreur")
+        result_label.config(text = "Erreur")
     except NameError:
         messagebox.showerror("Erreur", "Vous esseyez d'entrer n'importe quoi hein ?")
-        result_label.config(text="Erreur")
+        result_label.config(text = "Erreur")
     except ValueError:
-        messagebox.showerror("Erreur", "Erreur de type. Assurez-vous d'entrer une expression mathématique valide.")
-        result_label.config(text="Erreur")
+        messagebox.showerror("Erreur", "Erreur de type. Entrer une expression valide.")
+        result_label.config(text = "Erreur")
     except SyntaxError:
         messagebox.showerror("Erreur", "Vous esseyez d'entrer n'importe quoi hein ?")
-        result_label.config(text="Erreur")
+        result_label.config(text = "Erreur")
     except Exception as e:
         messagebox.showerror("Erreur", f"Erreur de calcul : {str(e)}")
-        result_label.config(text="Erreur")
- 
+        result_label.config(text = "Erreur")
 def save_operation(expression, result):
     """
     _summary_
@@ -45,11 +44,11 @@ def save_operation(expression, result):
     try:
         data = pd.read_csv('operations.csv')
     except FileNotFoundError:
-        data = pd.DataFrame(columns=['Expression', 'Résultat'])
+        data = pd.DataFrame(columns = ['Expression', 'Résultat'])
 
     new_data = pd.DataFrame({'Expression': [expression], 'Résultat': [result]})
-    data = pd.concat([data, new_data], ignore_index=True)
-    data.tail(5).to_csv('operations.csv', index=False)
+    data = pd.concat([data, new_data], ignore_index = True)
+    data.tail(5).to_csv('operations.csv', index = False)
 
 def show_last_5_operations():
     """
@@ -59,7 +58,7 @@ def show_last_5_operations():
     try:
         data = pd.read_csv('operations.csv')
         last_operations = data.tail(5)
-        messagebox.showinfo("Les 5 dernières opérations", last_operations.to_string(index=False))
+        messagebox.showinfo("Les 5 dernières opérations", last_operations.to_string(index = False))
     except FileNotFoundError:
         messagebox.showinfo("Empty", "Aucune opération n'a été enregistrée.")
 
@@ -69,31 +68,31 @@ def reset_entry():
         Cette fonction réinitialise l'input de l'utilisateur.
     """
     entry.delete(0, 'end')
-    result_label.config(text="Résultat : ")
+    result_label.config(text = "Résultat : ")
 
 # Création fenêtre principale
 root = tk.Tk()
 root.title("Calculatrice")
 
 # Input
-entry = tk.Entry(root, font=('Arial', 14))
-entry.pack(pady=10)
+entry = tk.Entry(root, font = ('Arial', 14))
+entry.pack(pady = 10)
 
 # Afficher le résultat
-result_label = tk.Label(root, text="Résultat : ", font=('Arial', 14))
-result_label.pack(pady=10)
+result_label = tk.Label(root, text="Résultat : ", font = ('Arial', 14))
+result_label.pack(pady = 10)
 
 # Lancer le calcul
-calculate_button = tk.Button(root, text="Calculer", command=calculate_and_errors, font=('Arial', 14))
-calculate_button.pack(side=tk.LEFT, padx=5)
+calculate_button = tk.Button(root, text = "Calculer", command = calculate_and_errors, font = ('Arial', 14))
+calculate_button.pack(side = tk.LEFT, padx = 5)
 
 # Réinitialiser Input
-reset_button = tk.Button(root, text="Reset", command=reset_entry, font=('Arial', 14))
-reset_button.pack(side=tk.LEFT, padx=5)
+reset_button = tk.Button(root, text = "Reset", command = reset_entry, font = ('Arial', 14))
+reset_button.pack(side = tk.LEFT, padx = 5)
 
 # Afficher les 5 dernières opérations
-history_button = tk.Button(root, text="Historique", command=show_last_5_operations, font=('Arial', 14))
-history_button.pack(side=tk.RIGHT, padx=5)
+history_button = tk.Button(root, text = "Historique", command = show_last_5_operations, font = ('Arial', 14))
+history_button.pack(side = tk.RIGHT, padx = 5)
 
 
 
